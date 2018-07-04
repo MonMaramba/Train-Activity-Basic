@@ -1,0 +1,38 @@
+.jumbotron {
+    height: 20%;
+    width: 95%;
+    position: relative;
+    left: 2.5%;
+    border: 2px solid black;
+}
+
+h1 {
+    text-align: center;
+    position: absolute;
+    top: 10%;
+    left: 35%;
+}
+
+#scheduleTable {
+    width: 95%;
+    border: 2px solid black;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+}
+
+.table {
+    margin: 10px;
+}
+
+#inputDiv {
+    display: inline-block; 
+    width: 95%;
+    border: 2px solid black;
+    border-radius: 10px;
+    text-align: center;
+    position: absolute;
+    left: 3.5%;
+    padding-bottom: 10px;
+    
+}

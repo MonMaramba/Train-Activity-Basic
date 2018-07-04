@@ -1,0 +1,98 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Train Activity Basic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+
+</head>
+
+<body>
+        <div class="jumbotron">
+                <div class="container text-center">
+                  <h1>Tracy Train System</h1>      
+                  
+                </div>
+              </div>
+              
+           
+              <div class="container-fluid" id="scheduleTable">
+                    <h2>Train Schedule</h2>    
+                                   
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>Train Name</th>
+                          <th>Destination</th>
+                          <th>Frequency</th>
+                          <th>Next Arrival</th>
+                          <th>Minutes Away</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>1</td>
+                          <td>Anna</td>
+                        </tr>
+                        <tr>
+                          <td>2</td>
+                          <td>Debbie</td>
+                        </tr>
+                        <tr>
+                          <td>3</td>
+                          <td>John</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+              <br>
+              <br>
+              <div class="container">    
+                <div class="row" id="inputDiv">
+                  <div class="col-sm-12">
+                        <form>
+                                <div class="form-group">
+                                  <label for="TrainNameIn">Email address</label>
+                                  <input type="text" class="form-control" id="TrainNameIn" placeholder="Enter Train Name">
+                                  
+                                </div>
+                                <div class="form-group">
+                                  <label for="DestinationIn">Password</label>
+                                  <input type="password" class="form-control" id="DestinationIn" placeholder="Destination">
+                                </div>
+                                <div class="form-group">
+                                        <label for="FirstTrainIn">First Train Time(HH:mm - military time)</label>
+                                        <input type="time" class="form-control" id="FirstTrainIn" placeholder="12:01 am">
+                                      </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                              </form>
+                    </div>
+                  </div>
+                 
+                </div>
+              </div><br><br>
+              
+              <footer class="container-fluid text-center">
+                <p>Train Scheduler Copyright by Ramon. You've got too much time if you're reading this</p>  
+                
+              </footer>
+              
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <script src="assets/javascript/train.js"></script>
+</body>
+
+</html>
