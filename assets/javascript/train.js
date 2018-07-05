@@ -11,3 +11,22 @@ var config = {
   firebase.initializeApp(config);
 
   var database = firebase.database();
+//for current time and update every second
+function clock() {
+$("#currentTime").text(moment().format("D MMM YYYY HH:mm:ss"));
+}
+setInterval(clock, 1000);
+//Initial values
+
+//Button click to capture values for train
+
+//Code to push into firebase
+
+//Wait for firebase to change values
+
+//handle errors
+
+//show in html
+
+
+

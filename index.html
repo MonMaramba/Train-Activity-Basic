@@ -15,75 +15,93 @@
 </head>
 
 <body>
-        <div class="jumbotron">
-                <div class="container text-center">
-                  <h1>Tracy Train System</h1>      
-                  
-                </div>
-              </div>
-              
-           
-              <div class="container-fluid" id="scheduleTable">
-                    <h2>Train Schedule</h2>    
-                                   
-                    <table class="table table-striped">
-                      <thead>
-                        <tr>
-                          <th>Train Name</th>
-                          <th>Destination</th>
-                          <th>Frequency</th>
-                          <th>Next Arrival</th>
-                          <th>Minutes Away</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>1</td>
-                          <td>Anna</td>
-                        </tr>
-                        <tr>
-                          <td>2</td>
-                          <td>Debbie</td>
-                        </tr>
-                        <tr>
-                          <td>3</td>
-                          <td>John</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-              <br>
-              <br>
-              <div class="container">    
-                <div class="row" id="inputDiv">
-                  <div class="col-sm-12">
-                        <form>
-                                <div class="form-group">
-                                  <label for="TrainNameIn">Email address</label>
-                                  <input type="text" class="form-control" id="TrainNameIn" placeholder="Enter Train Name">
-                                  
-                                </div>
-                                <div class="form-group">
-                                  <label for="DestinationIn">Password</label>
-                                  <input type="password" class="form-control" id="DestinationIn" placeholder="Destination">
-                                </div>
-                                <div class="form-group">
-                                        <label for="FirstTrainIn">First Train Time(HH:mm - military time)</label>
-                                        <input type="time" class="form-control" id="FirstTrainIn" placeholder="12:01 am">
-                                      </div>
-                                <button type="submit" class="btn btn-primary">Submit</button>
-                              </form>
+    <div class="jumbotron">
+        <div class="container-fluid text-center">
+            <h1>Tracy Train System</h1>
+            <br>
+            <span for="" id="currentTime"></span>
+            <br>
+            <br>
+        </div>
+    </div>
+    <br>
+    <br>
+
+    <div class="container-fluid" id="scheduleTable">
+        <h2>Train Schedule</h2>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Train Name</th>
+                    <th>Destination</th>
+                    <th>Frequency</th>
+                    <th>Next Arrival</th>
+                    <th>Minutes Away</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>George Train</td>
+                    <td>Georgetown</td>
+                    <td>Every 30 mins</td>
+                    <td>06:35</td>
+                    <td>25 mins</td>
+                </tr>
+                <tr>
+                    <td>Diesel 10</td>
+                    <td>Sodor</td>
+                    <td>Every 50 mins</td>
+                    <td>08:50</td>
+                    <td>30 mins</td>
+                </tr>
+                <tr>
+                    <td>Starlight Express</td>
+                    <td>Seattle</td>
+                    <td>Every 50 mins</td>
+                    <td>21:00</td>
+                    <td>2 hrs</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <br>
+    <div class="container">
+        <div class="row" id="inputDiv">
+            <div class="col-sm-12">
+                <br>
+                <form>
+                    <div class="form-group">
+                        <label>Train Name:</label>
+                        <input type="text" class="form-control" id="TrainNameIn" placeholder="Enter Train Name">
+
                     </div>
-                  </div>
-                 
-                </div>
-              </div><br><br>
-              
-              <footer class="container-fluid text-center">
-                <p>Train Scheduler Copyright by Ramon. You've got too much time if you're reading this</p>  
-                
-              </footer>
-              
+                    <br>
+                    <div class="form-group">
+                        <label>Destination:</label>
+                        <input type="text" class="form-control" id="DestinationIn" placeholder="Destination">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label>First Train Time: (HH:mm - military time)</label>
+                        <input type="text" class="form-control" id="firstTrainIn" placeholder="--:-- --">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label>Frequency: (Minutes) </label>
+                        <input type="text" class="form-control" id="frequencyIn" placeholder="55 mins">
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <br>
+    <br>
 
 
 
