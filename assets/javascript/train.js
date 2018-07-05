@@ -20,6 +20,8 @@ setInterval(clock, 1000);
 
 //Button click to capture values for train
 
+//compute for next arrival and minutes away
+
 //Code to push into firebase
 
 //Wait for firebase to change values
