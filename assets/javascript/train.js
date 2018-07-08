@@ -21,8 +21,11 @@ var now = moment().format("HH:mm");
 var tName = "";
 var destinationIn = "";
 var firstTIn = "";
-var freq;
+var freq = 0;
 var timeDiff;
+var minsToNextTrain;
+var nextTrainTime;
+var formattedNextTrainTime;
 
 //Button click to capture values for train
 $("#go").on("click", function(event){
@@ -33,44 +36,69 @@ $("#go").on("click", function(event){
     firstTIn = $("#firstTrainIn").val().trim();
     freq = $("#frequencyIn").val().trim();
 
-    //Code to push into firebase
+    //computations for minutes til next train
+    //to make sure computation is for a future event    
+    var convertedTime = moment(firstTIn, "HH:mm")
+        
+    timeDiff = moment().diff(moment(convertedTime), "minutes");
+    timeRemainder = timeDiff % freq;
+    
+    //compute for minutes away
+    minsToNextTrain = freq - timeRemainder;
 
-    database.ref().push({
+    //compute for time of next train arrival
+    /*while (nextTrainTime <= moment()) {
+        nextArrival = moment(firstTIn).add(freq);  
+        console.log(nextTrainTime);}*/
+
+    nextTrainTime = moment().add(minsToNextTrain, "minutes");
+    formattedNextTrainTime = moment(nextTrainTime).format("hh:mm A");  
+
+    /*console.log(tName);
+    console.log(destination);
+    console.log(firstTIn);
+    console.log(freq);
+    console.log(timeRemainder);
+    console.log(minsToNextTrain);
+    console.log(formattedNextTrainTime);*/
+
+       //Code to push into firebase
+
+       database.ref().push({
         name: tName,
         destination: destination,
         firstTrain: firstTIn,
-        frequency: freq
+        frequency: freq,
+        nextTrainMins: minsToNextTrain,
+        nextTime: formattedNextTrainTime
+        
     })
 
 
-    //computations for minutes til next train
-    //to make sure computation is for a future event    
-    var convertedTime = moment(firstTIn, "hh:mm").subtract(1, "years");
-        
-    timeDiff = moment().diff(moment(convertedTime), "minutes");
-    timeRemain = timeDiff % freq;
+    //to empty input forms
+    $("#TrainNameIn").val("");
+    $("#DestinationIn").val("");
+    $("#firstTrainIn").val("");
+    $("#frequencyIn").val("");
 
-    console.log(tName);
-    console.log(destination);
-    console.log(firstTIn);
-    console.log(timeRemain);
-
+    return false;
 
 
 
 
 })
 
-//to empty input forms
-$("#TrainNameIn").val("");
-$("#DestinationIn").val("");
-$("#firstTrainIn").val("");
-$("#frequencyIn").val("");
+//firebase "listener" for new values
+database.ref().on("child_added", function(childSnapshot) {
+    console.log(childSnapshot.val().name);
+    console.log(childSnapshot.val().destination);
+    console.log(childSnapshot.val().firstTrain);
+    console.log(childSnapshot.val().frequency);
+    console.log(childSnapshot.val().nextTrainMins);
+    console.log(childSnapshot.val().nextTime);
 
 
-//compute for next arrival and minutes away
 
-//Code to push into firebase
 
 //Wait for firebase to change values
 
@@ -78,5 +106,5 @@ $("#frequencyIn").val("");
 
 //show in html
 
-
+})
 
