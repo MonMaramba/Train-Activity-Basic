@@ -8,6 +8,7 @@
     text-align: center;
     margin: 0 auto;
     background: rgb(85, 161, 233);
+    box-shadow: 10px 10px 5px grey;
 }
 
 h1 {
@@ -15,7 +16,7 @@ h1 {
     position: absolute;
     top: 10%;
     left: 40%;
-    
+    font-weight: 700;
 }
 
 h2 {
@@ -25,12 +26,13 @@ h2 {
     margin: 0 auto;
     background: rgb(85, 161, 233);
     width: 102%;
-    
+    font-weight: 600;
 }
+
 
 #currenttime {
     position: absolute;
-    left: 42.5%;
+    left: 44.5%;
     text-align: center;
     top: 72.5%;
     color: rgb(189, 69, 69);
@@ -47,7 +49,7 @@ span {
     width: 95%;
     border: 2px solid black;
     border-radius: 10px;
-    
+    box-shadow: 10px 10px 5px grey;
     position: relative;
     overflow: scroll;
 }
@@ -59,11 +61,6 @@ label {
     
 }
 
-.form-control {
-    
-
-}
-
 .form-group {
     display: inline;
 }
@@ -72,16 +69,12 @@ label {
     margin: 10px;
 }
 
-#firstTrainIn {
-    
-}
-
 #inputDiv {
     display: inline-block; 
     width: 95%;
     border: 2px solid black;
     border-radius: 10px;
-    
+    box-shadow: 10px 10px 5px grey;
     position: absolute;
     left: 3.5%;
     padding-bottom: 10px;
@@ -90,20 +83,16 @@ label {
 
 @media (max-width: 640px) {
     h1 {
-    
         position: absolute;
         top: 5%;
         left: 12.5%;
-        
     }
     
     #currenttime {
         position: absolute;
         left: 25%;
         text-align: center;
-        top: 50%;
-       
-        
+        top: 50%;  
     }
 
     h2 {

@@ -1,4 +1,4 @@
-//initialize firebase
+//initializing firebase
 var config = {
     apiKey: "AIzaSyDmoCo_jTxk5bBjq26MnbQ41ekzZh0iPtI",
     authDomain: "first-project-1d33c.firebaseapp.com",
@@ -6,16 +6,17 @@ var config = {
     projectId: "first-project-1d33c",
     storageBucket: "first-project-1d33c.appspot.com",
     messagingSenderId: "159227054709"
-  };
+};
 
-  firebase.initializeApp(config);
+firebase.initializeApp(config);
 
-  var database = firebase.database();
+var database = firebase.database();
 //for current time and update every second
 function clock() {
-$("#currentTime").text(moment().format("D MMM HH:mm:ss"));
+    $("#currentTime").text(moment().format("D MMM HH:mm:ss"));
 }
 setInterval(clock, 1000);
+
 //Initial values
 var now = moment().format("HH:mm");
 var tName = "";
@@ -28,7 +29,7 @@ var nextTrainTime;
 var formattedNextTrainTime;
 
 //Button click to capture values for train
-$("#go").on("click", function(event){
+$("#go").on("click", function (event) {
     event.preventDefault();
 
     tName = $("#TrainNameIn").val().trim();
@@ -39,41 +40,28 @@ $("#go").on("click", function(event){
     //computations for minutes til next train
     //to make sure computation is for a future event    
     var convertedTime = moment(firstTIn, "HH:mm")
-        
+
     timeDiff = moment().diff(moment(convertedTime), "minutes");
     timeRemainder = timeDiff % freq;
-    
+
     //compute for minutes away
     minsToNextTrain = freq - timeRemainder;
 
     //compute for time of next train arrival
-    /*while (nextTrainTime <= moment()) {
-        nextArrival = moment(firstTIn).add(freq);  
-        console.log(nextTrainTime);}*/
-
     nextTrainTime = moment().add(minsToNextTrain, "minutes");
-    formattedNextTrainTime = moment(nextTrainTime).format("hh:mm A");  
+    formattedNextTrainTime = moment(nextTrainTime).format("hh:mm A");
 
-    /*console.log(tName);
-    console.log(destination);
-    console.log(firstTIn);
-    console.log(freq);
-    console.log(timeRemainder);
-    console.log(minsToNextTrain);
-    console.log(formattedNextTrainTime);*/
+    //Code to push into firebase
 
-       //Code to push into firebase
-
-       database.ref().push({
+    database.ref().push({
         name: tName,
         destination: destination,
         firstTrain: firstTIn,
         frequency: freq,
         nextTrainMins: minsToNextTrain,
         nextTime: formattedNextTrainTime
-        
-    })
 
+    })
 
     //to empty input forms
     $("#TrainNameIn").val("");
@@ -82,29 +70,24 @@ $("#go").on("click", function(event){
     $("#frequencyIn").val("");
 
     return false;
-
-
-
-
 })
 
 //firebase "listener" for new values
-database.ref().on("child_added", function(childSnapshot) {
-    console.log(childSnapshot.val().name);
-    console.log(childSnapshot.val().destination);
-    console.log(childSnapshot.val().firstTrain);
-    console.log(childSnapshot.val().frequency);
-    console.log(childSnapshot.val().nextTrainMins);
-    console.log(childSnapshot.val().nextTime);
+database.ref().on("child_added", function (childSnapshot) {
 
+    //assign to variables
+    var trainName = childSnapshot.val().name;
+    var dest = childSnapshot.val().destination;
+    var train1 = childSnapshot.val().nextTime;
+    var fQ = childSnapshot.val().frequency;
+    var mins = childSnapshot.val().nextTrainMins;
 
+    //add as table data in html
 
+    $("tbody").append("<tr><td>" + trainName + "</td><td>" + dest + "</td><td>" + "Every " + fQ + " mins" + "</td><td>" + train1 + "</td><td>" + mins + " mins" + "</td></tr>");
 
-//Wait for firebase to change values
-
-//handle errors
-
-//show in html
-
-})
+    //to handle errors
+}, function (errorObject) {
+    console.log("Errors handled: " + errorObject.code);
+});
 
