@@ -51,7 +51,7 @@ span {
     border-radius: 10px;
     box-shadow: 10px 10px 5px grey;
     position: relative;
-    overflow: scroll;
+    overflow: hidden;
 }
 
 label {

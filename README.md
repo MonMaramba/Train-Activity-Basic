@@ -1,7 +1,6 @@
 #The Objectives
 
-1. This is another project that is a part of my coursework requirements for the UC Berkeley Extension Coding Bootcamp.
-It aims to create a train scheduler using firebase as a database then AJAX and JSON for working with the data. JQuery and Javascript for manipulating html elements for the game mechanics and to display results.
+1. This is another project that is a part of my coursework requirements for the UC Berkeley Extension Coding Bootcamp. It aims to create a train scheduler using firebase as a database then AJAX and JSON for working with the data. JQuery and Javascript for manipulating html elements for the game mechanics and to display results.
 
 1. This will also be some more practice at writing a README file using some basic Markdown on Github
 
